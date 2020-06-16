@@ -1,5 +1,5 @@
 session_config:
-  session_expiration_time: 0.0
+  session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
 - inform
@@ -7,12 +7,13 @@ intents:
 - goodbye
 - affirm
 - deny
-- order
-- send_ixo
-- stop
-- success
 - thankyou
 - fuel_my_entity
+- ixo_entity
+entities:
+- token
+- ixo_amount
+- ixo_entity
 slots:
   account_balance:
     type: unfeaturized
@@ -28,15 +29,15 @@ slots:
     type: unfeaturized
   currency:
     type: unfeaturized
-    initial_value: "IXO"
+    initial_value: IXO
   entity_id:
     type: unfeaturized
-    initial_value: "to be specified"
+    initial_value: to be specified
   fee_amount:
     type: unfeaturized
   fee_currency:
     type: unfeaturized
-    initial_value: "Euros"
+    initial_value: Euros
   fee_description:
     type: unfeaturized
   fee_id:
@@ -57,7 +58,7 @@ slots:
     initial_value: 10
   ixo_entity:
     type: unfeaturized
-    initial_value: "unspecficied entity"
+    initial_value: unspecficied entity
   ixo_gas_fee:
     type: unfeaturized
     initial_value: 10
@@ -71,21 +72,22 @@ slots:
     type: unfeaturized
   start_time:
     type: unfeaturized
-  token:
-    type: unfeaturized
   to_wallet_address:
+    type: unfeaturized
+  token:
     type: unfeaturized
   transaction_fee:
     type: unfeaturized
     initial_value: 10
   transaction_fee_currency:
     type: unfeaturized
-    initial_value: "IXO"
+    initial_value: IXO
   vendor_name:
     type: unfeaturized
 responses:
   utter_ixo_entity_id:
-  - text: I understand that you would like to add {ixo_amount) IXO credits to your {ixo_entity} with ID {entity_id}
+  - text: I understand that you would like to add {ixo_amount) IXO credits to your
+      {ixo_entity} with ID {entity_id}
   utter_currency:
   - text: The currency of this transaction is {currency}
   utter_add_fuel:
@@ -97,7 +99,8 @@ responses:
   utter_fee_type:
   - text: The fee type for this transacton is {fee_type}
   utter_transaction_fee_ixo:
-  - text: You will be charged a standard transaction fee of {ixo_gas_fee} IXO credits. This will be included in the total transaction amount).
+  - text: You will be charged a standard transaction fee of {ixo_gas_fee} IXO credits.
+      This will be included in the total transaction amount).
   utter_fuel_credit_amount:
   - text: The suggested amount of credits to cover all fees is {ixo_amount} IXO
   utter_fuel_credit_refund_policy:
@@ -141,7 +144,8 @@ responses:
   utter_noworries:
   - text: You're welcome :)
   utter_fuel_instruction_done:
-  - text: You have successfully set up an instruction to fuel your {ixo_entity} with {ixo_amount} IXO credits
+  - text: You have successfully set up an instruction to fuel your {ixo_entity} with
+      {ixo_amount} IXO credits
   utter_instruction_cancelled:
   - text: This instruction has been cancelled
   utter_ask_continue:
@@ -151,6 +155,31 @@ responses:
   utter_ask_ixo_fuel_amount:
   - text: How many IXO credits would you like to add
 actions:
-- action_account_balance
+- utter_ixo_entity_id
+- utter_currency
+- utter_add_fuel
+- utter_wallet_balance_pre
+- utter_wallet_balance_post
+- utter_fee_type
+- utter_transaction_fee_ixo
+- utter_fuel_credit_amount
+- utter_fuel_credit_refund_policy
+- utter_ixo_currency_conversion
+- utter_fee_description_freehosting
+- utter_adding_fuel
+- utter_ask_confirm_hosting_offer
+- utter_ask_fuel_entity_form_from_wallet_address
+- utter_got_it
+- utter_ask_fuel_entity_form_to_wallet_address
+- utter_ask_fuel_entity_form_ixo_amount
+- utter_ask_fuel_entity_form_confirm
+- utter_goodbye
+- utter_greet
+- utter_noworries
+- utter_fuel_instruction_done
+- utter_instruction_cancelled
+- utter_ask_continue
+- utter_default
+- utter_ask_ixo_fuel_amount
 forms:
 - fuel_entity_form
