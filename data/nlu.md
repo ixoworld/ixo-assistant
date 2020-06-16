@@ -11,35 +11,26 @@
 - fund
 - ok
 
-## intent:ask_transfer_charge
-- how much is the transfer fee
-
 ## intent:fuel_my_entity
 - Add fuel
-- Add ixo
+- Add [ixo](token)
+- Fuel my [project](ixo_entity) with [1000](ixo_amount) IXO credits
+- Fuel my [cell](ixo_entity) with [500](ixo_amount) IXO credits
 - top up my fuel
-- add ixo to my project
-- add ixo to my cell
-- Fuel my project
-- Fuel my cell
-- Pay for my project
-- Pay for my cell
+- add ixo to my [project](ixo_entity)
+- add ixo to my [cell](ixo_entity)
+- Fuel my [project](ixo_entity)
+- Fuel my [cell](ixo_entity)
+- Pay for my [project](ixo_entity)
+- Pay for my [cell](ixo_entity)
 - fuel my entity
-- I would like to fuel this project with IXO tokens
-- fuel
-- fuel_my_entities
-- Fuel project
+- I would like to fuel this [project](ixo_entity) with [IXO](token) tokens
+- Fuel [project](ixo_entity)
 - Fuel
-- Fuel a project
-- FuelEntityForm
+- Fuel a [project](ixo_entity)
 - fuel_entity_form
-- fuel my project
-- I would like to fuel my project
-- This I want to fuel my {ixo_entity}
-- Buy ixo
-
-## intent:check_earnings
-- how much was deposited in January
+- fuel my [project](ixo_entity)
+- I would like to fuel my [project](ixo_entity)
 
 ## intent:deny
 - not really
@@ -70,6 +61,7 @@
 - Hello there
 
 ## intent:inform
+- 1000
 - tomorrow
 - next week
 - yesterday
@@ -84,15 +76,6 @@
 - for saturday
 - today
 
-## intent:pay_cc
-- Pay my mastercard
-- I want to pay my MasterCard bill
-
-## intent:search_transactions
-- i want to see my transaction history
-- I want to search my past transactions
-- can I search my transaction history
-
 ## intent:thankyou
 - thank you goodbye
 - okay thank you goodbye
@@ -105,4 +88,5 @@
 - thank you and good bye
 
 ## intent:ixo_entity
-- Confirm my {ixo_entity} id
+- Confirm my [project](ixo_entity) id
+- Confirm my [cell](ixo_entity)

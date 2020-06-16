@@ -31,6 +31,7 @@ slots:
     initial_value: "IXO"
   entity_id:
     type: unfeaturized
+    initial_value: "to be specified"
   fee_amount:
     type: unfeaturized
   fee_currency:
@@ -54,6 +55,9 @@ slots:
   ixo_currency_conversion:
     type: unfeaturized
     initial_value: 10
+  ixo_entity:
+    type: unfeaturized
+    initial_value: "unspecficied entity"
   ixo_gas_fee:
     type: unfeaturized
     initial_value: 10
@@ -67,6 +71,8 @@ slots:
     type: unfeaturized
   start_time:
     type: unfeaturized
+  token:
+    type: unfeaturized
   to_wallet_address:
     type: unfeaturized
   transaction_fee:
@@ -78,12 +84,8 @@ slots:
   vendor_name:
     type: unfeaturized
 responses:
-  utter_project_entity_id:
-  - text: I understand that you would like to add {ixo_amount)IXO credits to your {ixo_entity}
-      with ID {entity_id}
-  utter_cell_entity_id:
-  - text: I understand that you would like to add IXO credits to fuel the fees for
-      your cell node with ID {entity_id}
+  utter_ixo_entity_id:
+  - text: I understand that you would like to add {ixo_amount) IXO credits to your {ixo_entity} with ID {entity_id}
   utter_currency:
   - text: The currency of this transaction is {currency}
   utter_add_fuel:
@@ -138,8 +140,10 @@ responses:
   - text: Hi, how can I help you?
   utter_noworries:
   - text: You're welcome :)
-  utter_fuel_added:
-  - text: You have successfully fuelled your {ixo_entity} with {ixo_amount} IXO credits
+  utter_fuel_instruction_done:
+  - text: You have successfully set up an instruction to fuel your {ixo_entity} with {ixo_amount} IXO credits
+  utter_instruction_cancelled:
+  - text: This instruction has been cancelled
   utter_ask_continue:
   - text: Would you like to continue?
   utter_default:

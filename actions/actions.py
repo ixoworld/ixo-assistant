@@ -371,25 +371,28 @@ class FuelEntityForm(FormAction):
                 self.from_intent(value=True, intent="affirm"),
                 self.from_intent(value=False, intent="deny"),
             ],
+            "ixo_amount": [
+            self.from_entity(
+                entity="ixo_amount", intent=["inform"]
+            ),
+        ],
         }
-
 
     def submit(self, dispatcher, tracker, domain):
         if tracker.get_slot("confirm"):
-            dispatcher.utter_message(template="utter_transfer_complete")
+            dispatcher.utter_message(template="utter_fuel_instruction_done")
             return [
-                SlotSet("PERSON", None),
-                SlotSet("amount_of_money", None),
+                SlotSet("entity_id", None),
+                SlotSet("ixo_amount", None),
+                SlotSet("to_wallet_address",None)
                 SlotSet("confirm", None),
-                SlotSet(
-                    "amount_transferred", tracker.get_slot("amount_of_money")
-                ),
-            ]
+            ],
         else:
-            dispatcher.utter_message(template="utter_transfer_cancelled")
+            dispatcher.utter_message(template=" utter_instruction_cancelled")
             return [
-                SlotSet("PERSON", None),
-                SlotSet("amount_of_money", None),
+                SlotSet("entity_id", None),
+                SlotSet("ixo_amount", None),
+                SlotSet("to_wallet_address",None)
                 SlotSet("confirm", None),
             ]
 
