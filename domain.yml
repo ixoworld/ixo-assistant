@@ -1,0 +1,152 @@
+session_config:
+  session_expiration_time: 0.0
+  carry_over_slots_to_new_session: true
+intents:
+- inform
+- greet
+- goodbye
+- affirm
+- deny
+- order
+- send_ixo
+- stop
+- success
+- thankyou
+- fuel_my_entity
+slots:
+  account_balance:
+    type: unfeaturized
+    initial_value: 1000
+  agent_id:
+    type: unfeaturized
+  amount_transferred:
+    type: unfeaturized
+    initial_value: 1000
+  confirm:
+    type: unfeaturized
+  credit_card:
+    type: unfeaturized
+  currency:
+    type: unfeaturized
+    initial_value: "IXO"
+  entity_id:
+    type: unfeaturized
+  fee_amount:
+    type: unfeaturized
+  fee_currency:
+    type: unfeaturized
+    initial_value: "Euros"
+  fee_description:
+    type: unfeaturized
+  fee_id:
+    type: unfeaturized
+  fee_type:
+    type: unfeaturized
+  from_wallet_balance_post:
+    type: unfeaturized
+    initial_value: 0
+  from_wallet_balance_pre:
+    type: unfeaturized
+    initial_value: 1000
+  ixo_amount:
+    type: unfeaturized
+    initial_value: 1000
+  ixo_currency_conversion:
+    type: unfeaturized
+    initial_value: 10
+  ixo_gas_fee:
+    type: unfeaturized
+    initial_value: 10
+  offer_description:
+    type: unfeaturized
+  payment_amount:
+    type: unfeaturized
+  payment_amount_type:
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+  start_time:
+    type: unfeaturized
+  to_wallet_address:
+    type: unfeaturized
+  transaction_fee:
+    type: unfeaturized
+    initial_value: 10
+  transaction_fee_currency:
+    type: unfeaturized
+    initial_value: "IXO"
+  vendor_name:
+    type: unfeaturized
+responses:
+  utter_project_entity_id:
+  - text: I understand that you would like to add {ixo_amount)IXO credits to your {ixo_entity}
+      with ID {entity_id}
+  utter_cell_entity_id:
+  - text: I understand that you would like to add IXO credits to fuel the fees for
+      your cell node with ID {entity_id}
+  utter_currency:
+  - text: The currency of this transaction is {currency}
+  utter_add_fuel:
+  - text: I'm going to take you through a few steps to fuel your {ixo_entity}
+  utter_wallet_balance_pre:
+  - text: Your current IXO Credits balance in this wallet is {from_wallet_balance_pre}
+  utter_wallet_balance_post:
+  - text: The balance in your wallet after this transaction will be {from_wallet_balance_post}
+  utter_fee_type:
+  - text: The fee type for this transacton is {fee_type}
+  utter_transaction_fee_ixo:
+  - text: You will be charged a standard transaction fee of {ixo_gas_fee} IXO credits. This will be included in the total transaction amount).
+  utter_fuel_credit_amount:
+  - text: The suggested amount of credits to cover all fees is {ixo_amount} IXO
+  utter_fuel_credit_refund_policy:
+  - text: You will be able to withdraw any remaining balance of IXO credits
+  utter_ixo_currency_conversion:
+  - text: The equivalent _currency value of your credits will be approximately {ixo_currency_conversion}
+  utter_fee_description_freehosting:
+  - text: If you add 1,000 or more IXO credits, you will get 12 months of standard
+      data hosting included (fair use terms apply).
+  utter_adding_fuel:
+  - text: Now carefully check your order details, then I will transfer you to sign
+      this transaction in your wallet.
+  utter_ask_confirm_hosting_offer:
+  - buttons:
+    - payload: /affirm_offer
+      title: Confirm
+    - payload: /deny_offer
+      title: No thanks
+    text: Would you like to accept the offer of {offer_description}?
+  utter_ask_fuel_entity_form_from_wallet_address:
+  - text: IXO will be sent from the wallet address (which you control)
+  utter_got_it:
+  - text: Got it!
+  utter_ask_fuel_entity_form_to_wallet_address:
+  - text: The wallet address to which the IXO credits will be sent is {to_wallet_address}
+  utter_ask_fuel_entity_form_ixo_amount:
+  - text: Let's go ahead with adding {ixo_amount} IXO credits, or please enter a different
+      amount
+  utter_ask_fuel_entity_form_confirm:
+  - buttons:
+    - payload: /affirm
+      title: Confirm
+    - payload: /deny
+      title: Cancel
+    text: So lets confirm that we are loading up {ixo_amount} IXO credits. You will
+      still have the opportunity to review your order before submitting the transaction
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hi, how can I help you?
+  utter_noworries:
+  - text: You're welcome :)
+  utter_fuel_added:
+  - text: You have successfully fuelled your {ixo_entity} with {ixo_amount} IXO credits
+  utter_ask_continue:
+  - text: Would you like to continue?
+  utter_default:
+  - text: I didn't get that. Please try rephrase
+  utter_ask_ixo_fuel_amount:
+  - text: How many IXO credits would you like to add
+actions:
+- action_account_balance
+forms:
+- fuel_entity_form
